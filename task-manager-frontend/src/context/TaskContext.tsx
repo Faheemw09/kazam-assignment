@@ -25,9 +25,12 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
     try {
       const token = localStorage.getItem("token");
       console.log(token);
-      const { data } = await axios.get("http://localhost:8080/api/tasks/", {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      const { data } = await axios.get(
+        "https://kazam-backend-8uil.onrender.com/api/tasks/",
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       console.log(data);
       setTasks(data);
     } catch (error) {
@@ -46,7 +49,7 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
     try {
       const token = localStorage.getItem("token");
       const { data } = await axios.post(
-        "http://localhost:8080/api/tasks/",
+        "https://kazam-backend-8uil.onrender.com/api/tasks/",
         {
           title: taskData.title,
           description: taskData.description,
@@ -68,7 +71,7 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
       console.log("Selected Status:", status);
       const token = localStorage.getItem("token");
       const { data } = await axios.patch(
-        `http://localhost:8080/api/tasks/${id}`,
+        `https://kazam-backend-8uil.onrender.com/api/tasks/${id}`,
         { status },
         {
           headers: { Authorization: `Bearer ${token}` },
@@ -84,9 +87,12 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
   const deleteTask = async (id: string) => {
     try {
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:8080/api/tasks/${id}`, {
-        headers: { Authorization: `Bearer ${token}` },
-      });
+      await axios.delete(
+        `https://kazam-backend-8uil.onrender.com/api/tasks/${id}`,
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      );
       setTasks((prevTasks) => prevTasks.filter((task) => task._id !== id));
     } catch (error) {
       console.error("Error deleting task:", error);

@@ -1,5 +1,5 @@
 import axios from "axios";
-import { createContext, useContext, useEffect, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 type User = {
   name: string;
@@ -25,10 +25,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   );
 
   const login = async (email: string, password: string) => {
-    const response = await axios.post("http://localhost:8080/api/auth/login", {
-      email,
-      password,
-    });
+    const response = await axios.post(
+      "https://kazam-backend-8uil.onrender.com/api/auth/login",
+      {
+        email,
+        password,
+      }
+    );
     const userData: User = {
       name: response.data.name,
       email: response.data.email,
@@ -41,11 +44,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     setUser(userData);
   };
   const signup = async (name: string, email: string, password: string) => {
-    await axios.post("http://localhost:8080/api/auth/register", {
-      name,
-      email,
-      password,
-    });
+    await axios.post(
+      "https://kazam-backend-8uil.onrender.com/api/auth/register",
+      {
+        name,
+        email,
+        password,
+      }
+    );
     await login(email, password);
   };
   const logout = () => {

@@ -42,12 +42,12 @@ const Dashboard: React.FC = () => {
   const columns = [
     {
       name: "Sr.No",
-      selector: (row, index) => String(index + 1).padStart(2, "0"),
+      selector: (row: any, index) => String(index + 1).padStart(2, "0"),
       sortable: true,
     },
     {
       name: "Task Name",
-      selector: (row) => row.title,
+      selector: (row: any) => row.title,
       sortable: true,
     },
     {
