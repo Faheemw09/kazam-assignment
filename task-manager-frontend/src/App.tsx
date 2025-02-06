@@ -1,19 +1,22 @@
 import { Navigate, Route, Routes } from "react-router-dom";
-
 import Login from "./pages/login";
 import SignUp from "./pages/signup";
 import Dashboard from "./pages/dashboard";
 
-const PrivateRoute = ({ children }) => {
+interface PrivateRouteProps {
+  children: JSX.Element;
+}
+
+const PrivateRoute: React.FC<PrivateRouteProps> = ({ children }) => {
   const token = localStorage.getItem("token");
   return token ? children : <Navigate to="/" replace />;
 };
+
 function App() {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
       <Route path="/signup" element={<SignUp />} />
-
       <Route
         path="/dashboard"
         element={
