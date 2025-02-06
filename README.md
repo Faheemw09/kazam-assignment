@@ -4,7 +4,7 @@ A full-stack task management system built with the MERN stack (MongoDB, Express,
 
 **Frontend**: https://kazam-fe-cyan.vercel.app/
 
-**Backend**: https://kazam-backend-8uil.onrender.com/
+
 
 ## Features
 
