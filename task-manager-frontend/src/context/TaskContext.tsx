@@ -37,9 +37,12 @@ export function TaskProvider({ children }: { children: React.ReactNode }) {
       console.error("Error fetching tasks:", error);
     }
   };
+  const token = localStorage.getItem("token");
   useEffect(() => {
-    fetchTasks();
-  }, []);
+    if (token) {
+      fetchTasks();
+    }
+  }, [token]);
   const createTask = async (taskData: {
     title: string;
     description: string;

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Drawer,
   Button,
@@ -13,8 +13,13 @@ import { useTaskContext } from "../context/TaskContext";
 import DataTable from "react-data-table-component";
 
 const Dashboard: React.FC = () => {
-  const { tasks, createTask, updateTask, deleteTask } = useTaskContext();
-  const { logout, user } = useAuth();
+  const { tasks, createTask, updateTask, deleteTask, fetchTasks } =
+    useTaskContext();
+  const { logout, user, token } = useAuth();
+  console.log(token, tasks);
+  useEffect(() => {
+    fetchTasks();
+  }, [fetchTasks]);
 
   const [visible, setVisible] = useState(false);
   const [editModalVisible, setEditModalVisible] = useState(false);
