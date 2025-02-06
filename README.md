@@ -167,7 +167,7 @@ Retrieve all tasks for the authenticated user.
 Update an existing task.
 
 - **URL:** `/api/tasks/:id`
-- **Method:** `PATCH`
+- **Method:** `PUT`
 - **Authentication:** Required
 - **Content-Type:** `application/json`
 
