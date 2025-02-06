@@ -1,8 +1,10 @@
 # Task Management Application
 
 A full-stack task management system built with the MERN stack (MongoDB, Express, React, Node.js) using TypeScript.
-Frontend: https://kazam-fe-cyan.vercel.app/
-Backend: https://kazam-backend-8uil.onrender.com/
+
+**Frontend**: https://kazam-fe-cyan.vercel.app/
+
+**Backend**: https://kazam-backend-8uil.onrender.com/
 
 ## Features
 
